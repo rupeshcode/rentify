@@ -1,0 +1,22 @@
+.heading{
+    display: flex;
+    justify-content: center;
+padding: 10px;
+background-color: antiquewhite;
+}
+
+.input_wrapper{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+.text_input{
+    width: 250px;
+    margin-top: 2px;
+}
+
+.button_wrapper{
+    margin-top: 10px;
+}

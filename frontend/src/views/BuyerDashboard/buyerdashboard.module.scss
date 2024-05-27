@@ -1,0 +1,23 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+.filters{
+    padding-block: 1rem;
+    padding-inline: 3rem;
+    .filterContainer{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        gap: 1rem;
+        justify-content: space-around;
+        
+    }
+}
+  .property_data {
+    padding-block: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+}

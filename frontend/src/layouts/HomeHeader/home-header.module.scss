@@ -1,0 +1,17 @@
+.header {
+  color: white;
+  height: 56px;
+  width: 100%;
+  z-index: 10;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px,
+    rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
+
+  h1 {
+    color: #fa5252;
+    background-image: -webkit-linear-gradient(0deg, #fa5252 20%, #6eb2f7 80%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+}

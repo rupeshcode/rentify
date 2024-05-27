@@ -1,0 +1,68 @@
+.common_btn {
+  display: flex;
+  gap: 8px;
+  .submit_btn {
+    button {
+      color: white;
+      background-color: #198754;
+      font-weight: 400;
+      border: 1px solid transparent;
+      transition-duration: 0.5s;
+      &:hover {
+        background-color: transparent;
+        color: #198754;
+        border: 1px solid #198754;
+      }
+    }
+  }
+  .cancel_btn {
+    button {
+      color: white;
+      background-color: rgb(202, 37, 37);
+      font-weight: 400;
+      border: 1px solid transparent;
+      transition-duration: 0.5s;
+      &:hover {
+        background-color: transparent;
+        color: rgb(202, 37, 37);
+        border: 1px solid rgb(202, 37, 37);
+      }
+    }
+  }
+}
+.button_wrapper {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin: 0.8rem;
+
+  .apply_leave {
+    background-color: rgb(33, 150, 243);
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 50px;
+    transition-duration: 0.5s;
+    font-weight: 600;
+    &:hover {
+      background-color: transparent;
+      color: rgb(33, 150, 243);
+      border: 1px solid rgb(33, 150, 243);
+      border-radius: 50px;
+      font-weight: 600;
+    }
+  }
+}
+.tab_wrapper {
+  display: flex;
+  justify-content: space-between;
+  .tab_list {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 1170px) {
+  .button_wrapper {
+    margin: 13px;
+  }
+}

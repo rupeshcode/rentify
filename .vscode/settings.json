@@ -1,0 +1,26 @@
+{
+  // editor
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  // files
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "java.compile.nullAnalysis.mode": "automatic",
+  "java.format.settings.url": ".vscode/java-style.xml",
+  "[java]": {
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "editor.defaultFormatter": "redhat.java"
+  },
+  "maven.terminal.favorites": [
+    {
+      "command": "clean install -Dspring.profiles.active=prod",
+      "debug": false
+    }
+  ],
+  "java.debug.settings.onBuildFailureProceed": true
+}

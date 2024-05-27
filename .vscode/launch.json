@@ -1,0 +1,15 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-DemoApplication<demo>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.rentify.demo.DemoApplication",
+      "projectName": "demo",
+      "args": "",
+      "vmArgs": "-Dspring.profiles.active=dev",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+.footerpage {
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+  background-color: #c9e9f0;
+  position: fixed;
+  color: black;
+  span {
+    font-size: 0.9rem;
+  }
+}
+@media screen and (max-width: 700px) {
+  .footerpage {
+    font-size: small;
+  }
+}
+@media screen and (max-width: 500px) {
+  .footerpage {
+    font-size: xx-small;
+  }
+}
