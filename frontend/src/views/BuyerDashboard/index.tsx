@@ -106,71 +106,74 @@ const BuyerDashboard = () => {
           </div>
         </form>
       </div>
-      <div className={scss.property_data}>
-        {propertData?.length !== 0 ? (
-          propertData.map((property: any) => {
-            return (
-              <Card
-                key={property.id}
-                shadow="sm"
-                padding="lg"
-                radius="md"
-                withBorder
-              >
-                <Group justify="space-between" mt="md" mb="xs">
-                  <Text fw={500}>{property.noOfBedroom} bhk Flat</Text>
-                  <Badge color="pink">On Rent</Badge>
-                </Group>
-                <Table>
-                  <Table.Tbody>
-                    <Table.Tr>
-                      <Table.Td>Place:</Table.Td>
-                      <Table.Td>{property.place}</Table.Td>
-                    </Table.Tr>
-                    <Table.Tr>
-                      <Table.Td>Area:</Table.Td>
-                      <Table.Td>{property.area}</Table.Td>
-                    </Table.Tr>
-                    <Table.Tr>
-                      <Table.Td>No.of.Bathrooms:</Table.Td>
-                      <Table.Td>{property.noOfBathroom}</Table.Td>
-                    </Table.Tr>
-                    <Table.Tr>
-                      <Table.Td>No.of.Bedrooms:</Table.Td>
-                      <Table.Td>{property.noOfBedroom}</Table.Td>
-                    </Table.Tr>
-                    <Table.Tr>
-                      <Table.Td>Near By Places:</Table.Td>
-                      <Table.Td>{property.nearbyArea}</Table.Td>
-                    </Table.Tr>
-                    <Table.Tr>
-                      <Table.Td>Name of Near By Places:</Table.Td>
-                      <Table.Td>{property.nameOfNearByArea}</Table.Td>
-                    </Table.Tr>
-                    <Table.Tr>
-                      <Table.Td>Price:</Table.Td>
-                      <Table.Td>{property.price}</Table.Td>
-                    </Table.Tr>
-                  </Table.Tbody>
-                </Table>
+      <div className={scss.dashboard}>
+        <div className={scss.property_data}>
+          {propertData?.length !== 0 ? (
+            propertData.map((property: any) => {
+              return (
+                <Card
+                  className={scss.card}
+                  key={property.id}
+                  shadow="sm"
+                  padding="lg"
+                  radius="md"
+                  withBorder
+                >
+                  <Group justify="space-between" mt="md" mb="xs">
+                    <Text fw={500}>{property.noOfBedroom} bhk Flat</Text>
+                    <Badge color="pink">On Rent</Badge>
+                  </Group>
+                  <Table>
+                    <Table.Tbody>
+                      <Table.Tr>
+                        <Table.Td>Place:</Table.Td>
+                        <Table.Td>{property.place}</Table.Td>
+                      </Table.Tr>
+                      <Table.Tr>
+                        <Table.Td>Area:</Table.Td>
+                        <Table.Td>{property.area}</Table.Td>
+                      </Table.Tr>
+                      <Table.Tr>
+                        <Table.Td>No.of.Bathrooms:</Table.Td>
+                        <Table.Td>{property.noOfBathroom}</Table.Td>
+                      </Table.Tr>
+                      <Table.Tr>
+                        <Table.Td>No.of.Bedrooms:</Table.Td>
+                        <Table.Td>{property.noOfBedroom}</Table.Td>
+                      </Table.Tr>
+                      <Table.Tr>
+                        <Table.Td>Near By Places:</Table.Td>
+                        <Table.Td>{property.nearbyArea}</Table.Td>
+                      </Table.Tr>
+                      <Table.Tr>
+                        <Table.Td>Name of Near By Places:</Table.Td>
+                        <Table.Td>{property.nameOfNearByArea}</Table.Td>
+                      </Table.Tr>
+                      <Table.Tr>
+                        <Table.Td>Price:</Table.Td>
+                        <Table.Td>{property.price}</Table.Td>
+                      </Table.Tr>
+                    </Table.Tbody>
+                  </Table>
 
-                {!user?.id && (
-                  <Button
-                    color="blue"
-                    onClick={() => router.push("/login")}
-                    fullWidth
-                    mt="md"
-                    radius="md"
-                  >
-                    I'm Interested
-                  </Button>
-                )}
-              </Card>
-            );
-          })
-        ) : (
-          <h1>No Property Found</h1>
-        )}
+                  {!user?.id && (
+                    <Button
+                      color="blue"
+                      onClick={() => router.push("/login")}
+                      fullWidth
+                      mt="md"
+                      radius="md"
+                    >
+                      I'm Interested
+                    </Button>
+                  )}
+                </Card>
+              );
+            })
+          ) : (
+            <h1>No Property Found</h1>
+          )}
+        </div>
       </div>
     </div>
   );

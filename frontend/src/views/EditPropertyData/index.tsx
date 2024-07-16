@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import * as Yup from "yup";
-import scss from "./add-property.module.scss";
+import scss from "./edit-property.module.scss";
 import { Button, Card, Select, TextInput } from "@mantine/core";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -29,7 +29,9 @@ const validationSchema = Yup.object({
   price: Yup.string().required("price is Required"),
 });
 
-const AddPropertyForm = ({ onClose }: any) => {
+const EditPropertyForm = ({ onClose, property }: any) => {
+  console.log("property", property);
+
   const user = useUserStore.use.user();
   const propertData = useTempStore.use.propertData();
   const setPropertData = useTempStore.use.setPropertData();
@@ -39,10 +41,46 @@ const AddPropertyForm = ({ onClose }: any) => {
     getValues,
     handleSubmit,
     clearErrors,
+    watch,
     formState: { errors },
   } = useForm<AddPropery>({
     resolver: yupResolver(validationSchema),
   });
+
+  useEffect(() => {
+    if (property?.id) {
+      setValue("place", property.place);
+      setValue("area", property.area);
+      setValue("noOfBathroom", property.noOfBathroom);
+      setValue("noOfBedroom", property.noOfBedroom);
+      setValue("nearbyArea", property.nearbyArea);
+      setValue("nameOfNearByArea", property.nameOfNearByArea);
+      setValue("price", property.price);
+    }
+  }, []);
+  const onSubmit: SubmitHandler<AddPropery> = async (data) => {
+    try {
+      const response = await fetcher("/property/edit-property", "POST", {
+        ...data,
+        noOfBathroom: String(data.noOfBathroom),
+        noOfBedroom: String(data.noOfBedroom),
+        nearbyArea: String(data.nearbyArea),
+        id: property.id,
+        sellerId: user.id,
+      });
+
+      if (response == "edited!") {
+        toast.success("Property edited successfully");
+        getPropertyData();
+        onClose();
+      }
+    } catch (error: any) {
+      toast.error(error.message);
+    }
+  };
+  // useEffect(() => {
+  //   getPropertyData();
+  // }, []);
 
   const getPropertyData = async () => {
     const response = await fetcher("/property/get-all", "POST", {
@@ -53,22 +91,8 @@ const AddPropertyForm = ({ onClose }: any) => {
     }
   };
 
-  const onSubmit: SubmitHandler<AddPropery> = async (data) => {
-    try {
-      const response = await fetcher("/property/add", "POST", {
-        ...data,
-        sellerId: user.id,
-      });
-
-      if (response == "added") {
-        toast.success("Property added successfully");
-        getPropertyData();
-        onClose();
-      }
-    } catch (error: any) {
-      toast.error(error.message);
-    }
-  };
+  const bathroom = watch("noOfBathroom");
+  console.log("watch", bathroom);
 
   return (
     <>
@@ -92,6 +116,7 @@ const AddPropertyForm = ({ onClose }: any) => {
                   onChange={(value: any) => {
                     setValue("noOfBathroom", value);
                   }}
+                  value={String(bathroom)}
                 />
               </div>
               <div className={scss.text_input}>
@@ -110,6 +135,7 @@ const AddPropertyForm = ({ onClose }: any) => {
                   onChange={(value: any) => {
                     setValue("noOfBedroom", value);
                   }}
+                  value={String(getValues("noOfBedroom"))}
                 />
               </div>
               <div className={scss.text_input}>
@@ -126,6 +152,7 @@ const AddPropertyForm = ({ onClose }: any) => {
                   onChange={(value: any) => {
                     setValue("nearbyArea", value);
                   }}
+                  value={String(getValues("nearbyArea"))}
                 />
               </div>
               <div className={scss.text_input}>
@@ -157,4 +184,4 @@ const AddPropertyForm = ({ onClose }: any) => {
   );
 };
 
-export default AddPropertyForm;
+export default EditPropertyForm;

@@ -1,0 +1,51 @@
+.animate_class {
+  padding: 50px;
+  margin: 10px;
+  width: 120px;
+  height: 140px;
+  background-color: steelblue;
+  animation-name: sizingAnimation;
+  animation-direction: normal;
+  // animation-direction: alternate-reverse;
+  // animation-play-state: running;
+  // animation-duration: 2s;
+  // animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-duration: 5s;
+  animation-delay: 10s;
+  animation-fill-mode: forwards;
+}
+@keyframes sizingAnimation {
+  // 0% {
+  //   opacity: 0;
+  //   transform: translateX(50%);
+  // }
+
+  // 80% {
+  //   transform: translateX(-3%);
+  // }
+
+  // 100% {
+  //   opacity: 1;
+  //   transform: translate(0);
+  // }
+
+  // 0% {
+  //   width: 100px;
+  // }
+  // 100% {
+  //   width: 1000px;
+  // }
+
+  0% {
+    transform: translate(none);
+  }
+
+  100% {
+    transform: translateX(270%) rotate(270deg);
+  }
+}
+
+// @keyframes diagonal-move-anim {
+
+// }

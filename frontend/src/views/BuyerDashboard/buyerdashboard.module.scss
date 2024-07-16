@@ -1,23 +1,29 @@
 .dashboard {
   display: flex;
   flex-direction: column;
-.filters{
+  .filters {
     padding-block: 1rem;
     padding-inline: 3rem;
-    .filterContainer{
-        display: flex;
-        flex-direction: row;
-        align-items: flex-end;
-        gap: 1rem;
-        justify-content: space-around;
-        
+    .filterContainer {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      gap: 1rem;
+      justify-content: space-around;
     }
-}
+  }
   .property_data {
     padding-block: 1rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    .property_card {
+      max-width: 80%;
+      width: 20rem;
+    }
   }
+}
+.card {
+  width: 20%;
 }

@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class Property {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private long id;
+  private Long id;
 
   private String place;
   private Double area;
@@ -19,13 +19,6 @@ public class Property {
   private Long sellerId;
   private Integer likeCount;
 
-  public long getId() {
-    return id;
-  }
-
-  public void setId(long id) {
-    this.id = id;
-  }
 
   public String getPlace() {
     return place;
@@ -97,6 +90,14 @@ public class Property {
 
   public void setNameOfNearByArea(String nameOfNearByArea) {
     this.nameOfNearByArea = nameOfNearByArea;
+  }
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
   }
 
 

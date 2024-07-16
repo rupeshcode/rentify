@@ -65,50 +65,52 @@ const Login = () => {
         <h1 className={scss.heading}>Login</h1>
         <Card>
           <form noValidate onSubmit={handleSubmit(onSubmit)}>
-            <div className="container">
-              <div className={scss.input_wrapper}>
-                <div className={scss.text_input}>
-                  <Radio.Group
-                    onChange={(value: any) => {
-                      setValue("roleId", value);
-                      clearErrors("roleId");
-                    }}
-                    label="Role"
-                    value={getValues("roleId")}
-                    error={errors.roleId?.message}
-                  >
-                    <Group mt="0.4rem">
-                      <Radio value="2" label="Buyer" />
-                      <Radio value="1" label="Seller" />
-                    </Group>
-                  </Radio.Group>
-                </div>
-                <div className={scss.text_input}>
-                  <TextInput
-                    label="Email"
-                    error={errors.username?.message}
-                    leftSection={<MdOutlineMailOutline />}
-                    {...register("username")}
-                    type="email"
-                  />
-                </div>
-                <div className={scss.text_input}>
-                  <PasswordInput
-                    label="Password"
-                    placeholder="Enter your password"
-                    error={errors.password?.message}
-                    {...register("password")}
-                  />
-                </div>
+            <div className={scss.super_main_div}>
+              <div className={scss.main_div}>
+                <div className={scss.input_wrapper}>
+                  <div className={scss.text_input}>
+                    <Radio.Group
+                      onChange={(value: any) => {
+                        setValue("roleId", value);
+                        clearErrors("roleId");
+                      }}
+                      label="Role"
+                      value={getValues("roleId")}
+                      error={errors.roleId?.message}
+                    >
+                      <Group mt="0.4rem">
+                        <Radio value="2" label="Buyer" />
+                        <Radio value="1" label="Seller" />
+                      </Group>
+                    </Radio.Group>
+                  </div>
+                  <div className={scss.text_input}>
+                    <TextInput
+                      label="Email"
+                      error={errors.username?.message}
+                      leftSection={<MdOutlineMailOutline />}
+                      {...register("username")}
+                      type="email"
+                    />
+                  </div>
+                  <div className={scss.text_input}>
+                    <PasswordInput
+                      label="Password"
+                      placeholder="Enter your password"
+                      error={errors.password?.message}
+                      {...register("password")}
+                    />
+                  </div>
 
-                <div className={scss.button_wrapper}>
-                  <Button type="submit" fullWidth>
-                    SignIn
-                  </Button>
+                  <div className={scss.button_wrapper}>
+                    <Button type="submit" fullWidth>
+                      SignIn
+                    </Button>
+                  </div>
+                  <p>
+                    Dont have an account <Link href="/register">SignUp</Link>
+                  </p>
                 </div>
-                <p>
-                  Dont have an account <Link href="/register">SignUp</Link>
-                </p>
               </div>
             </div>
           </form>

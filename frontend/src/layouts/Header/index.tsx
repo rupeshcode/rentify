@@ -143,7 +143,7 @@ function Header() {
         opened={openedAddProperty}
         onClose={closeAddProperty}
       >
-        <AddPropertyForm />
+        <AddPropertyForm onClose={closeAddProperty} />
       </Modal>
     </header>
   );
